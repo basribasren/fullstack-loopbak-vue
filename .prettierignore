@@ -1,0 +1,10 @@
+# dependencies
+node_modules/
+
+client/
+
+package-lock.json
+
+yarn.lock
+
+package.json

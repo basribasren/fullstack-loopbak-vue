@@ -1,0 +1,38 @@
+{
+  "name": "onestep-boilerplate-rrlm-server",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "private": true,
+  "scripts": {
+    "start": "nodemon server/server.js",
+    "build": "node server/server.js",
+    "test": "eslint ."
+  },
+  "dependencies": {
+    "compression": "^1.7.3",
+    "cookie-parser": "~1.4.3",
+    "cors": "^2.8.4",
+    "debug": "~2.6.9",
+    "dotenv": "^6.1.0",
+    "express": "~4.16.0",
+    "helmet": "^3.14.0",
+    "http-errors": "~1.6.2",
+    "loopback": "^3.23.2",
+    "loopback-boot": "^2.27.1",
+    "loopback-component-explorer": "^6.3.1",
+    "loopback-connector-mongodb": "^3.9.1",
+    "morgan": "~1.9.0",
+    "serve-favicon": "^2.5.0",
+    "strong-error-handler": "^3.2.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.1",
+    "concurrently": "^4.0.1",
+    "eslint": "^5.8.0",
+    "eslint-config-loopback": "^12.0.0",
+    "eslint-config-prettier": "^3.1.0",
+    "eslint-plugin-prettier": "^3.0.0",
+    "nodemon": "^1.18.5",
+    "prettier": "^1.14.3"
+  }
+}
