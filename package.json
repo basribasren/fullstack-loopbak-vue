@@ -7,7 +7,7 @@
   },
   "scripts": {
     "lint": "eslint .",
-    "start": "node .",
+    "start": "NODE_ENV=production node .",
     "posttest": "npm run lint",
     "heroku-postbuild": "npm install --only=dev --no-shrinkwrap"
   },
