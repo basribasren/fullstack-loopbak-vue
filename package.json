@@ -4,8 +4,8 @@
   "main": "server/server.js",
   "private": true,
   "scripts": {
-    "dev": "nodemon server/server.js",
-    "start": "node server/server.js",
+    "dev": "nodemon .",
+    "start": "node .",
     "test": "eslint ."
   },
   "dependencies": {
