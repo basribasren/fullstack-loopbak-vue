@@ -13,7 +13,7 @@
     },
     "helmet#xssFilter": {},
     "helmet#frameguard": {
-      "params": ["deny"]
+      "params": { "action": "deny" }
     },
     "helmet#hsts": {
       "params": {
@@ -21,11 +21,7 @@
         "includeSubdomains": true
       }
     },
-    "helmet#hidePoweredBy": {
-      "params": {
-        "setTo": "onestep"
-      }
-    },
+    "helmet#hidePoweredBy": {},
     "helmet#ieNoOpen": {},
     "helmet#noSniff": {},
     "helmet#noCache": {
@@ -37,7 +33,9 @@
   "parse": {},
   "routes": {
     "loopback#rest": {
-      "paths": ["${restApiRoot}"]
+      "paths": [
+        "${restApiRoot}"
+      ]
     }
   },
   "files": {},
