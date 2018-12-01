@@ -29,7 +29,7 @@ script:
   - node --version
   - npm --version
   - yarn --version
-  - yarn test
+  - yarn lint
 
 notifications:
   email:

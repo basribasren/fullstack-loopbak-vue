@@ -37,6 +37,8 @@ module.exports = function(app) {
                 function(err, principal) {
                   if (err) {
                     return err;
+                  } else {
+                    return principal;
                   }
                 }
               );

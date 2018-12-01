@@ -28,7 +28,7 @@ test_script:
   - npm --version
   - yarn --version
   - yarn install
-  - yarn test
+  - yarn lint
 
 cache:
   - node_modules

@@ -1,5 +1,4 @@
 "use strict";
-var app = require("../../server/config.json");
 
 module.exports = function(Account) {
 	let Role;
@@ -29,6 +28,8 @@ module.exports = function(Account) {
 						function(err, principal) {
 							if (err) {
 								return err;
+							} else {
+								return principal;
 							}
 						}
 					);

@@ -8,6 +8,8 @@ module.exports = {
 		node: true
 	},
 	rules: {
-		"prettier/prettier": "off"
+		"prettier/prettier": "off",
+		"no-console": 0,
+		"no-unused-vars": 0
 	}
 };
