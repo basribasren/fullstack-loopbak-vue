@@ -1,0 +1,22 @@
+# dependencies
+/client/node_modules/
+/node_modules/
+
+# testing
+/client/coverage
+/coverage
+/client/test
+/test
+
+# production
+/client/build
+/client/dist
+
+/client/package-lock.json
+package-lock.json
+
+/client/yarn.lock
+yarn.lock
+
+/client/package.json
+package.json

@@ -1,35 +1,46 @@
 {
-  "name": "sample-loopback",
+  "name": "fullstack-loopback-vue",
   "version": "1.0.0",
   "main": "server/server.js",
   "engines": {
-    "node": ">=4"
+    "node": "8"
   },
   "scripts": {
+    "client-build": "cd client && npm run build",
+    "client-dev": "npm run serve --prefix client",
+    "client-start": "npm run start --prefix client",
+    "server-dev": "nodemon node .",
+    "development": "concurrently \"npm run server-dev\" \"npm run client-dev\"",
+    "start": "concurrently \"node .\" \"npm run client-start\"",
     "lint": "eslint .",
-    "start": "node .",
     "posttest": "npm run lint",
-    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap"
+    "heroku-prebuild": "npm install -g yarn && cd client && yarn install --production=false",
+    "heroku-postbuild": "npm run client-build"
   },
   "dependencies": {
     "compression": "^1.0.3",
     "cors": "^2.5.2",
-    "dotenv": "^6.1.0",
+    "dotenv": "^7.0.0",
     "helmet": "^3.10.0",
     "loopback": "^3.22.0",
     "loopback-boot": "^2.6.5",
     "loopback-component-explorer": "^6.2.0",
-    "loopback-connector-mongodb": "^3.9.2",
+    "loopback-connector-mongodb": "^4.1.0",
+    "promise": "^8.0.2",
     "serve-favicon": "^2.0.1",
     "strong-error-handler": "^3.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
-    "eslint": "^3.17.1",
-    "eslint-config-loopback": "^8.0.0",
-    "eslint-config-prettier": "^3.3.0",
+    "concurrently": "^4.1.0",
+    "eslint": "^5.16.0",
+    "eslint-config-loopback": "^13.1.0",
+    "eslint-config-prettier": "^4.2.0",
     "eslint-plugin-prettier": "^3.0.0",
-    "prettier": "^1.15.2"
+    "eslint-plugin-vue": "^5.2.2",
+    "nodemon": "^1.18.10",
+    "prettier": "^1.15.2",
+    "vue-eslint-parser": "^6.0.4"
   },
   "repository": {
     "type": "",

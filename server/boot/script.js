@@ -2,50 +2,47 @@
 // Node module: loopback-example-access-control
 // This file is licensed under the Artistic License 2.0.
 // License text available at https://opensource.org/licenses/Artistic-2.0
+const Promise = require('promise')
 
 module.exports = function(app) {
-  var User = app.models.account;
-  var Role = app.models.Role;
-  var RoleMapping = app.models.RoleMapping;
+	const User = app.models.account
+	const Role = app.models.Role
+	const RoleMapping = app.models.RoleMapping
 
-  User.create(
-    [
-      {
-        username: "admin",
-        email: "admin@gmail.com",
-        password: "admin",
-        realm: "admin"
-      }
-    ],
-    function(err, users) {
-      if (err) {
-        return err;
-      } else {
-        Role.create(
-          {
-            name: "admin"
-          },
-          function(err, role) {
-            if (err) {
-              return err;
-            } else {
-              role.principals.create(
-                {
-                  principalType: RoleMapping.USER,
-                  principalId: users[0].id
-                },
-                function(err, principal) {
-                  if (err) {
-                    return err;
-                  } else {
-                    return principal;
-                  }
-                }
-              );
-            }
-          }
-        );
-      }
-    }
-  );
-};
+	const accounts = [
+		{
+			username: 'kasir',
+			email: 'kasir@gmail.com',
+			password: 'kasir',
+			realm: 'kasir'
+		},
+		{
+			username: 'pelayan',
+			email: 'pelayan@gmail.com',
+			password: 'pelayan',
+			realm: 'pelayan'
+		}
+	]
+
+	return new Promise((resolve, reject) => {
+		accounts.map(account => {
+			User.create(account)
+				.then(users => {
+					Role.create({ name: users.realm }, (err, role) =>{
+						if (err) reject(console.log('ERROR: '+err.name))
+							
+						return role.principals.create({
+							principalType: RoleMapping.USER,
+							principalId: users.id
+						})
+					})
+				})
+				.then(() => {
+					resolve(console.log('Initial account have been create'))
+				})
+				.catch(err => {
+					reject(console.log('ERROR: '+err.name))
+				})
+		})
+	})
+}
