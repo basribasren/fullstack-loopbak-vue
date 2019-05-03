@@ -10,15 +10,15 @@ const isProduction = process.env.NODE_ENV === 'production'
 
 module.exports = {
 	mode: isProduction ? 'production' : 'development',
-	
+
 	entry: {
 		index: './src/main.js'
 	},
-	
-	devtool : isProduction ? 'none' : 'source-map',
-	
+
+	devtool: isProduction ? 'none' : 'source-map',
+
 	target: 'web',
-	
+
 	output: {
 		path: path.resolve(__dirname, '..', 'dist'),
 		filename: 'js/[name].[hash].js',
@@ -34,7 +34,7 @@ module.exports = {
 		},
 		symlinks: false
 	},
-	
+
 	module: {
 		rules: [
 			{
@@ -45,16 +45,16 @@ module.exports = {
 				test: /\.js$/,
 				loader: 'babel-loader',
 				exclude: /node_modules/
-			},      
+			},
 			{
 				test: /\.html$/,
-				use: [{ 
-					loader: 'html-loader', 
-					options: { 
+				use: [{
+					loader: 'html-loader',
+					options: {
 						minimize: true,
 						removeComments: false,
 						collapseWhitespace: false
-					} 
+					}
 				}]
 			},
 			{
@@ -65,16 +65,16 @@ module.exports = {
 				test: /\.scss$/,
 				use: [
 					'vue-style-loader',
-					MiniCssExtractPlugin.loader, 
+					MiniCssExtractPlugin.loader,
 					'css-loader',
 					'sass-loader'
 				]
 			},
 			{
 				test: /\.sass$/,
-				use: [ 
+				use: [
 					'vue-style-loader',
-					MiniCssExtractPlugin.loader,  
+					MiniCssExtractPlugin.loader,
 					'css-loader', {
 						loader: 'sass-loader',
 						options: {
@@ -87,7 +87,7 @@ module.exports = {
 				test: /\.styl(us)?$/,
 				use: [
 					'vue-style-loader',
-					MiniCssExtractPlugin.loader, 
+					MiniCssExtractPlugin.loader,
 					'css-loader',
 					'stylus-loader'
 				]
@@ -96,7 +96,7 @@ module.exports = {
 				test: /\.css$/,
 				use: [
 					'vue-style-loader',
-					MiniCssExtractPlugin.loader, 
+					MiniCssExtractPlugin.loader,
 					'css-loader',
 					'postcss-loader'
 				]
@@ -147,7 +147,7 @@ module.exports = {
 		hints: isProduction ? 'warning' : false
 	},
 	stats: { children: false },
-	plugins: [  
+	plugins: [
 		new CleanWebpackPlugin(),
 		new webpack.DefinePlugin({
 			'process.env': JSON.stringify(process.env)

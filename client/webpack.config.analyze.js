@@ -20,7 +20,7 @@ module.exports = merge(baseWebpackConfig, {
 		concatenateModules: false,
 		runtimeChunk: true,
 		noEmitOnErrors: true,
-		namedChunks: true,    
+		namedChunks: true,
 		moduleIds: 'hashed',
 		chunkIds: 'named',
 		mergeDuplicateChunks: false,
@@ -73,7 +73,7 @@ module.exports = merge(baseWebpackConfig, {
 		}),
 		new BundleAnalyzerPlugin(),
 	],
-	
+
 	// Don't attempt to continue if there are any errors.
 	bail: true
 })
