@@ -150,9 +150,7 @@ module.exports = {
 	plugins: [  
 		new CleanWebpackPlugin(),
 		new webpack.DefinePlugin({
-			'process.env': {
-				API_PATH: JSON.stringify('http://localhost:3000/api')
-			}
+			'process.env': JSON.stringify(process.env)
 		}),
 		new VueLoaderPlugin(),
 		new CopyWebpackPlugin([

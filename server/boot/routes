@@ -1,0 +1,8 @@
+const path = require('path')
+
+module.exports = function(app) {
+	// Install a "/ping" route that returns "pong"
+  	app.get('*', (req, res) => {
+		res.sendFile(path.resolve(__dirname,'../../client/index.html'))
+	})
+}

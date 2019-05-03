@@ -1,26 +1,27 @@
 'use strict'
 
 require('dotenv').config()
-var loopback = require('loopback')
-var boot = require('loopback-boot')
+const path = require('path')
+const loopback = require('loopback')
+const boot = require('loopback-boot')
 
 /* if want to check dotenv */
 // const PORT = process.env.PORT
 // const NODE_ENV = process.env.NODE_ENV
 // const DB_HOST = process.env.DB_HOST
 
-var app = (module.exports = loopback())
+const app = (module.exports = loopback())
 
 app.start = function() {
 	// start the web server
 	return app.listen(function() {
 		app.emit('started')
 		/* set baseurl*/
-		var baseUrl = app.get('url').replace(/\/$/, '')
+		const baseUrl = app.get('url').replace(/\/$/, '')
 		console.log('Web server listening at: %s', baseUrl)
 		/* set explorer path*/
 		if (app.get('loopback-component-explorer')) {
-			var explorerPath = app.get('loopback-component-explorer').mountPath
+			const explorerPath = app.get('loopback-component-explorer').mountPath
 			console.log('Browse your REST API at %s%s', baseUrl, explorerPath)
 		}
 		/* console the process.env */

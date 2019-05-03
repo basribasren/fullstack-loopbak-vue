@@ -71,9 +71,7 @@ export default {
 		}
 	},
 	data: () => ({
-		items: [
-			{ to: '/', icon: 'lock', text: 'Login' },
-		]
+		items: LinkAdmin
 	}),
 }
 </script>

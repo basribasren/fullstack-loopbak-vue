@@ -32,7 +32,9 @@
   },
   "session": {},
   "auth": {},
-  "parse": {},
+  "parse": {
+    "body-parser#json": {}
+  },
   "routes": {
     "loopback#rest": {
       "paths": [
@@ -41,9 +43,16 @@
     }
   },
   "files": {    
-    "loopback#static": {
-      "params": "$!../client/dist" 
-    }
+    "loopback#static": [
+      {
+        "paths": ["/"],
+        "params": "$!../client/dist"
+      },
+      {
+        "paths": ["*"],
+        "params": "$!../client/dist"
+      }
+    ]
   },
   "final": {
     "loopback#urlNotFound": {}
